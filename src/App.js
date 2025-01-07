@@ -1,26 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Sidebar from "./Sidebar";
-import DashboardPage from "./Dashboardpage";
+import Dashboardpage from "./Dashboardpage";
 import "./index.css";
 
 function App() {
-  const [currentPage, setCurrentPage] = useState("dashboard");
-
-  const renderPage = () => {
-    switch (currentPage) {
-      case "dashboard":
-        return <DashboardPage />;
-      // Add cases for other pages here
-      default:
-        return <DashboardPage />;
-    }
-  };
-
   return (
-    <div className="flex  min-h-screen">
-      <Sidebar currentPage={currentPage} setCurrentPage={setCurrentPage} />
-      <main className="flex-1 p-6 bg-gray-50">{renderPage()}</main>
-    </div>
+    <BrowserRouter>
+      <div className="flex min-h-screen">
+        <Sidebar />
+        <main className="flex-1 p-6 bg-gray-50">
+          <Routes>
+            <Route path="/" element={<Navigate to="/dashboard" replace />} />
+            <Route path="/dashboard" element={<Dashboardpage />} />
+          </Routes>
+        </main>
+      </div>
+    </BrowserRouter>
   );
 }
 
