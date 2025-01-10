@@ -38,7 +38,7 @@ const Customers = () => {
       case "Done":
         return "px-3 py-1 text-sm font-medium rounded-lg bg-green-100 text-green-600";
       case "Pending":
-        return "px-3 py-1 text-sm font-medium rounded-lg bg-blue-100 text-blue-600";
+        return "px-3 py-1 text-sm font-medium rounded-lg bg-green-100 text-blue-600";
       default:
         return "px-3 py-1 text-sm font-medium rounded-lg bg-gray-100 text-gray-600";
     }
