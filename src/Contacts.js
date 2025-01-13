@@ -1,40 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { Users, Star } from "lucide-react";
-import "./index.css";
 
-const Contacts = () => {
-  const [contacts, setContacts] = useState([
-    { id: 1, name: "John Doe", email: "john@example.com", isPotential: true },
-    {
-      id: 2,
-      name: "Jane Smith",
-      email: "jane@example.com",
-      isPotential: false,
-    },
-    {
-      id: 3,
-      name: "Mike Johnson",
-      email: "mike@example.com",
-      isPotential: true,
-    },
-    {
-      id: 4,
-      name: "Emily Davis",
-      email: "emily@example.com",
-      isPotential: false,
-    },
-  ]);
-
-  const togglePotentialStatus = (id) => {
-    setContacts((prevContacts) =>
-      prevContacts.map((contact) =>
-        contact.id === id
-          ? { ...contact, isPotential: !contact.isPotential }
-          : contact
-      )
-    );
-  };
-
+const Contacts = ({ contacts, togglePotentialStatus }) => {
   return (
     <div className="flex">
       <div className="flex-1 p-10 bg-gray-50">

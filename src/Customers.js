@@ -1,36 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { Users, Star } from "lucide-react";
 
-const Customers = () => {
-  const [contacts] = useState([
-    {
-      id: 1,
-      name: "John Doe",
-      email: "john@example.com",
-      isPotential: true,
-      Deal: "Done",
-    },
-    {
-      id: 2,
-      name: "Jane Smith",
-      email: "jane@example.com",
-      isPotential: false,
-    },
-    {
-      id: 3,
-      name: "Mike Johnson",
-      email: "mike@example.com",
-      isPotential: true,
-      Deal: "Pending",
-    },
-    {
-      id: 4,
-      name: "Emily Davis",
-      email: "emily@example.com",
-      isPotential: false,
-    },
-  ]);
-
+const Customers = ({ contacts }) => {
   const potentialCustomers = contacts.filter((contact) => contact.isPotential);
 
   const getDeal = (deal) => {
@@ -43,6 +14,7 @@ const Customers = () => {
         return "px-3 py-1 text-sm font-medium rounded-lg bg-gray-100 text-gray-600";
     }
   };
+
   return (
     <div className="flex">
       <div className="flex-1 p-10 bg-gray-50">
@@ -75,7 +47,7 @@ const Customers = () => {
                   </td>
                   <td className="p-4">
                     <span className={getDeal(customer.Deal)}>
-                      {customer.Deal}
+                      {customer.Deal || "No Deal"}
                     </span>
                   </td>
                 </tr>
